@@ -6,6 +6,7 @@ import {
     CLEAR_CURRENT,
     UPDATE_CONTACT,
     FILTER_CONTACTS,
+    FILTER_CONTACTS_CATEGORY,
     CLEAR_FILTER,
     CONTACT_ERROR, CLEAR_CONTACTS
 } from '../types';
@@ -67,6 +68,17 @@ export default (state, action) => {
                     return contact.name.match(regex) || contact.email.match(regex);
                 })
             };
+            case FILTER_CONTACTS_CATEGORY:
+            if(action.payload!=="all"){
+                return {
+                    ...state,
+                    filtered: state.contacts.filter(contact => {
+                        return contact.type.match(action.payload)
+                    })
+                };}else{
+                  return {...state,
+                  filtered: state.contacts}
+                }
         case CONTACT_ERROR:
             return {
                 ...state,

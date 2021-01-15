@@ -1,4 +1,4 @@
 {
-  "mongoURI": "\nmongodb://belchenkov:12qwasZX@ds245647.mlab.com:45647/react-contact-manager",
+  "mongoURI": "mongodb+srv://Julian_Bull:bIGP1SxlM3RvYHEl@cluster0.k6i5j.mongodb.net/contact-keeper?retryWrites=true&w=majority",
   "jwtSecret": "secret"
 }

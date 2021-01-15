@@ -20,6 +20,10 @@ const ContactSchema = mongoose.Schema({
         type: String,
         default: 'personal'
     },
+    category:{
+      type:String,
+      default:'friend'
+    },
     date: {
         type: Date,
         default: Date.now

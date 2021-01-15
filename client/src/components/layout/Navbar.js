@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import telephone from './telephone.png'
 import AuthContext from '../../context/auth/authContext';
 import ContactContext from '../../context/contact/contactContext';
 
@@ -41,7 +41,7 @@ const Navbar = ({ title, icon }) => {
 
     return (
         <div className="navbar bg-primary">
-            <h1><i className={icon} /> {title}</h1>
+            <img src={telephone} id="phone"/><h1> {title}</h1>
             <ul>{ isAuthenticated ? authLinks : guestLinks }</ul>
         </div>
     );

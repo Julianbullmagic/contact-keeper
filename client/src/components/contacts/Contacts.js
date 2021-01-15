@@ -7,7 +7,7 @@ import Spinner from "../layout/Spinner";
 
 const Contacts = () => {
     const contactContext = useContext(ContactContext);
-    const { contacts, filtered, getContacts, loading } = contactContext;
+    const { contacts, filtered, filterContactsCategory, getContacts, loading } = contactContext;
 
     useEffect(() => {
         getContacts();
@@ -20,6 +20,15 @@ const Contacts = () => {
 
     return (
         <Fragment>
+        <div>
+        <div className="tab">
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('all')}}>All</button>
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('personal')}}>Personal</button>
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('professional')}}>Professional</button>
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('friend')}}>Friend</button>
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('family')}}>Family</button>
+  <button className="tablinks" onClick={(e)=>{filterContactsCategory('enemy')}}>Enemy</button>
+  </div>
             { contacts !== null && !loading ? (
                 <TransitionGroup>
                     { filtered !== null
@@ -42,6 +51,7 @@ const Contacts = () => {
                     }
                 </TransitionGroup>
             ) : <Spinner /> }
+              </div>
         </Fragment>
     );
 };

@@ -15,6 +15,7 @@ const ContactForm = () => {
                name: '',
                email: '',
                phone: '',
+               category:'',
                type: 'personal'
             });
         }
@@ -24,10 +25,11 @@ const ContactForm = () => {
         name: '',
         email: '',
         phone: '',
+        category:'',
         type: 'personal'
     });
 
-    const { name, email, phone, type } = contact;
+    const { name, email, phone,category, type } = contact;
 
     const onChange = e => setContact({ ...contact, [e.target.name]: e.target.value });
 
@@ -74,27 +76,63 @@ const ContactForm = () => {
                 onChange={onChange}
             />
             <h5>Contact Type</h5>
-            <input
-                type="radio"
-                name="type"
-                value="personal"
-                onChange={onChange}
-                checked={type === 'personal'}
-            /> Personal{' '}
-            <input
-                type="radio"
-                name="type"
-                value="professional"
-                onChange={onChange}
-                checked={type === 'professional'}
-            /> Professional
             <div>
-                <input
+            <><label class="container">Personal
+              <input type="radio"
+              value="personal"
+              checked="checked"
+              name="type"
+              onChange={onChange}
+              checked={type === 'personal'}/>
+              <span class="checkmark"></span>
+            </label></>
+            <><label class="container">Professional
+              <input type="radio"
+              value="professional"
+              checked="checked"
+              name="type"
+              onChange={onChange}
+              checked={type === 'professional'}/>
+              <span class="checkmark"></span>
+            </label></>
+
+            <><label class="container">Friend
+              <input type="radio"
+              value="friend"
+              checked="checked"
+              name="type"
+              onChange={onChange}
+              checked={type === 'friend'}/>
+              <span class="checkmark"></span>
+            </label></>
+            <><label class="container">Family
+              <input type="radio"
+              value="family"
+              checked="checked"
+              name="type"
+              onChange={onChange}
+              checked={type === 'family'}/>
+              <span class="checkmark"></span>
+            </label></>
+            <><label class="container">Enemy
+              <input type="radio"
+              value="enemy"
+              checked="checked"
+              name="type"
+              onChange={onChange}
+              checked={type === 'enemy'}/>
+              <span class="checkmark"></span>
+            </label></>
+
+
+              <><label>  <input
                     type="submit"
                     value={ current ? 'Update Contact' : 'Add Contact' }
                     className="btn btn-primary"
-                />
+                /> </label>
+                </>
             </div>
+
             { current && <div>
                 <button className="btn btn-light btn-block" onClick={clearAll}>Clear</button>
             </div> }
